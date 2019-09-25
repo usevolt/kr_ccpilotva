@@ -4,7 +4,8 @@ QML_IMPORT_PATH =
 TEMPLATE = app
 QT += qml quick widgets
 SOURCES += main.cpp \
-    pulu.cpp
+    pulu.cpp \
+    ui.cpp
 
 RESOURCES += qml.qrc
 
@@ -132,5 +133,6 @@ INCLUDEPATH += c:/mtcc/include
 include(deployment.pri)
 
 HEADERS += \
-    pulu.h
+    pulu.h \
+    ui.h
 

@@ -13,10 +13,6 @@ Window {
 
     width: (orientationPortrait) ? 480 : 800;   height: (orientationPortrait) ? 800 : 480;
 
-    Pulu {
-        id: pulu;
-    }
-
     Rectangle {
         id: view
 
@@ -37,6 +33,12 @@ Window {
             font.pointSize: 20
             color: "blue"
             text: "kr_ccpilot_va"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    pulu.moveBackwardTo(1, 1);
+                }
+            }
         }
 
         // a simple exit-button in the top-right corner
@@ -53,6 +55,30 @@ Window {
                 anchors.fill: parent
                 onClicked: {
                     Qt.quit();
+                }
+            }
+        }
+
+        // status console bar on bottom
+        Rectangle {
+            id: statbar
+            anchors.bottom: parent.bottom
+            width: parent.width
+            height: statbartext.font.pixelSize * 2
+            color: "white"
+            Text {
+                id: statbartext
+                anchors {
+                    fill: parent
+                }
+                verticalAlignment: Text.AlignVCenter
+                color: "black"
+                text: "Hello QML"
+                Connections {
+                    target: ui
+                    onStatusLog: {
+                                statbartext.text = str;
+                            }
                 }
             }
         }

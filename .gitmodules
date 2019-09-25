@@ -1,0 +1,3 @@
+[submodule "robotsoft"]
+	path = robotsoft
+	url = https://github.com/siwastaja/robotsoft.git
